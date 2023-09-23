@@ -1,24 +1,24 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <h1>{{ title }}</h1>
+  <input type="text" ref="name" />
+  <button @click="handleClick">click me</button>
 </template>
+
+<script>
+export default {
+  name: 'App',
+  data() {
+    return {
+      title: 'My First Vue App :D'
+    }
+  },
+  methods: {
+    handleClick() {
+      console.log(this.$refs.name)
+    }
+  }
+}
+</script>
 
 <style scoped>
 header {
@@ -80,6 +80,12 @@ nav a:first-of-type {
 
     padding: 1rem 0;
     margin-top: 1rem;
+  }
+
+  h1 {
+    border-bottom: 1px solid #ddd;
+    display: inline-block;
+    padding-bottom: 10px;
   }
 }
 </style>
